@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -783,6 +784,220 @@
             color: #a0a0a0;
         }
         
+        /* Стилі для блокнота */
+        .notes-controls {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .light-theme .notes-controls {
+            background: #f9f9f9;
+        }
+        
+        .dark-theme .notes-controls {
+            background: #1a1a2e;
+        }
+        
+        .notes-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .notes-toolbar select, 
+        .notes-toolbar input, 
+        .format-btn, 
+        .notes-action-btn {
+            padding: 8px 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        .light-theme .notes-toolbar select,
+        .light-theme .notes-toolbar input,
+        .light-theme .format-btn,
+        .light-theme .notes-action-btn {
+            background: white;
+            color: #333;
+        }
+        
+        .dark-theme .notes-toolbar select,
+        .dark-theme .notes-toolbar input,
+        .dark-theme .format-btn,
+        .dark-theme .notes-action-btn {
+            background: #2d3748;
+            color: #e6e6e6;
+            border-color: #555;
+        }
+        
+        .format-btn, .notes-action-btn {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .format-btn:hover, .notes-action-btn:hover {
+            opacity: 0.8;
+        }
+        
+        .notes-container {
+            display: flex;
+            gap: 20px;
+            min-height: 400px;
+        }
+        
+        .notes-list {
+            width: 250px;
+            border-radius: 8px;
+            padding: 10px;
+            overflow-y: auto;
+        }
+        
+        .light-theme .notes-list {
+            background: #f9f9f9;
+            border: 1px solid #eee;
+        }
+        
+        .dark-theme .notes-list {
+            background: #1a1a2e;
+            border: 1px solid #2d3748;
+        }
+        
+        .note-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .light-theme .note-item {
+            background: white;
+            border: 1px solid #eee;
+        }
+        
+        .dark-theme .note-item {
+            background: #2d3748;
+            border: 1px solid #3c3c3c;
+        }
+        
+        .note-item:hover {
+            transform: translateY(-2px);
+        }
+        
+        .light-theme .note-item:hover {
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .dark-theme .note-item:hover {
+            box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+        }
+        
+        .note-item.active {
+            border-left: 4px solid #4b6cb7;
+        }
+        
+        .note-item-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .note-item-preview {
+            font-size: 12px;
+            color: #888;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .dark-theme .note-item-preview {
+            color: #aaa;
+        }
+        
+        .note-editor {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .light-theme .note-editor {
+            background: #f9f9f9;
+            border: 1px solid #eee;
+        }
+        
+        .dark-theme .note-editor {
+            background: #1a1a2e;
+            border: 1px solid #2d3748;
+        }
+        
+        #noteTitle {
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 15px;
+            border-radius: 0;
+        }
+        
+        .light-theme #noteTitle {
+            background: #f9f9f9;
+            color: #333;
+        }
+        
+        .dark-theme #noteTitle {
+            background: #1a1a2e;
+            color: #e6e6e6;
+            border-color: #555;
+        }
+        
+        #noteContent {
+            flex: 1;
+            padding: 10px;
+            min-height: 300px;
+            border: none;
+            resize: none;
+            line-height: 1.5;
+        }
+        
+        .light-theme #noteContent {
+            background: white;
+            color: #333;
+        }
+        
+        .dark-theme #noteContent {
+            background: #1a1a2e;
+            color: #e6e6e6;
+        }
+        
+        #noteContent:focus {
+            outline: none;
+        }
+        
+        .delete-note-btn {
+            background: #f44336 !important;
+            color: white !important;
+            margin-top: 10px;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+        
+        .empty-notes {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+        }
+        
+        .dark-theme .empty-notes {
+            color: #aaa;
+        }
+        
         @media (max-width: 600px) {
             .lesson {
                 flex-direction: column;
@@ -831,13 +1046,26 @@
             .teachers-list {
                 grid-template-columns: 1fr;
             }
+            
+            .notes-container {
+                flex-direction: column;
+            }
+            
+            .notes-list {
+                width: 100%;
+                max-height: 200px;
+            }
+            
+            .notes-toolbar {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body class="light-theme">
     <div class="container">
         <header>
-            <h1>Розклад занять на тиждень</h1>
+            <h1>Розклад занять на тижден</h1>
             <div class="date-display" id="currentDate"></div>
             <button class="theme-toggle" id="themeToggle">
                 <div class="theme-toggle-circle"></div>
@@ -848,6 +1076,7 @@
             <button class="nav-tab active" data-tab="schedule">Розклад</button>
             <button class="nav-tab" data-tab="games">Ігри</button>
             <button class="nav-tab" data-tab="teachers">Вчителі</button>
+            <button class="nav-tab" data-tab="notes">Блокнот</button>
         </div>
         
         <!-- Вкладка з розкладом -->
@@ -1266,6 +1495,53 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Вкладка з блокнотом -->
+        <div class="tab-content" id="notesTab">
+            <div class="day-info">
+                <h2 class="day-title">Блокнот</h2>
+                <div class="day-status">Ваш особистий блокнот для нотаток</div>
+            </div>
+            
+            <div class="notes-controls">
+                <div class="notes-toolbar">
+                    <select id="fontFamily">
+                        <option value="Arial, sans-serif">Arial</option>
+                        <option value="'Times New Roman', serif">Times New Roman</option>
+                        <option value="'Courier New', monospace">Courier New</option>
+                        <option value="Georgia, serif">Georgia</option>
+                        <option value="Verdana, sans-serif">Verdana</option>
+                    </select>
+                    
+                    <select id="fontSize">
+                        <option value="12px">Маленький</option>
+                        <option value="16px" selected>Середній</option>
+                        <option value="20px">Великий</option>
+                        <option value="24px">Дуже великий</option>
+                    </select>
+                    
+                    <input type="color" id="fontColor" value="#000000">
+                    
+                    <button id="boldBtn" class="format-btn" title="Жирний"><b>B</b></button>
+                    <button id="italicBtn" class="format-btn" title="Курсив"><i>I</i></button>
+                    <button id="underlineBtn" class="format-btn" title="Підкреслений"><u>U</u></button>
+                    
+                    <button id="newNoteBtn" class="notes-action-btn">Нова нотатка</button>
+                    <button id="saveNoteBtn" class="notes-action-btn">Зберегти</button>
+                </div>
+            </div>
+            
+            <div class="notes-container">
+                <div class="notes-list" id="notesList">
+                    <!-- Список нотаток буде генеруватися через JavaScript -->
+                </div>
+                
+                <div class="note-editor">
+                    <input type="text" id="noteTitle" placeholder="Заголовок нотатки">
+                    <div id="noteContent" contenteditable="true" placeholder="Текст вашої нотатки..."></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Сповіщення про початок уроку -->
@@ -1321,6 +1597,19 @@
             const gameButtons = document.querySelectorAll('.game-btn');
             const gameItems = document.querySelectorAll('.game-item');
             
+            // Елементи для блокнота
+            const notesList = document.getElementById('notesList');
+            const noteTitle = document.getElementById('noteTitle');
+            const noteContent = document.getElementById('noteContent');
+            const fontFamily = document.getElementById('fontFamily');
+            const fontSize = document.getElementById('fontSize');
+            const fontColor = document.getElementById('fontColor');
+            const boldBtn = document.getElementById('boldBtn');
+            const italicBtn = document.getElementById('italicBtn');
+            const underlineBtn = document.getElementById('underlineBtn');
+            const newNoteBtn = document.getElementById('newNoteBtn');
+            const saveNoteBtn = document.getElementById('saveNoteBtn');
+            
             // Змінні для ігор
             let math = {
                 score: 0,
@@ -1342,16 +1631,27 @@
                 }
             };
             
-            // Поточна дата та час (харківський час)
+            // Данные блокнота
+            let notesData = {
+                currentNoteId: null,
+                notes: []
+            };
+            
+            // Поточна дата та час (локальний час)
             function updateDateTime() {
                 const now = new Date();
-                // Харківський час (UTC+2 або UTC+3 в залежності від літнього часу)
-                const kharkivOffset = now.getTimezoneOffset() + (now.getTimezoneOffset() <= -120 ? -180 : -120);
-                const kharkivTime = new Date(now.getTime() + kharkivOffset * 60 * 1000);
                 
-                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Europe/Kiev' };
-                currentDateElement.textContent = now.toLocaleDateString('uk-UA', options) + ' (Харківський час)';
-                currentTimeElement.textContent = 'Поточний час: ' + kharkivTime.toLocaleTimeString('uk-UA');
+                // Используем локальное время устройства
+                const options = { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric', 
+                    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone 
+                };
+                
+                currentDateElement.textContent = now.toLocaleDateString('uk-UA', options);
+                currentTimeElement.textContent = 'Поточний час: ' + now.toLocaleTimeString('uk-UA');
                 
                 // Оновлення статусу дня
                 updateDayStatuses();
@@ -1779,6 +2079,178 @@
                 }
             }
             
+            // Блокнот
+            function initNotes() {
+                // Загрузка сохраненных заметок
+                const savedNotes = localStorage.getItem('notes');
+                if (savedNotes) {
+                    notesData.notes = JSON.parse(savedNotes);
+                }
+                
+                // Обработчики событий для форматирования
+                boldBtn.addEventListener('click', () => document.execCommand('bold', false, null));
+                italicBtn.addEventListener('click', () => document.execCommand('italic', false, null));
+                underlineBtn.addEventListener('click', () => document.execCommand('underline', false, null));
+                
+                fontFamily.addEventListener('change', () => document.execCommand('fontName', false, fontFamily.value));
+                fontSize.addEventListener('change', () => document.execCommand('fontSize', false, fontSize.value));
+                fontColor.addEventListener('change', () => document.execCommand('foreColor', false, fontColor.value));
+                
+                // Кнопки действий
+                newNoteBtn.addEventListener('click', createNewNote);
+                saveNoteBtn.addEventListener('click', saveCurrentNote);
+                
+                // Автосохранение при изменении
+                noteTitle.addEventListener('input', debounce(saveCurrentNote, 1000));
+                noteContent.addEventListener('input', debounce(saveCurrentNote, 1000));
+                
+                // Отображение списка заметок
+                renderNotesList();
+                
+                // Создание первой заметки, если нет других
+                if (notesData.notes.length === 0) {
+                    createNewNote();
+                } else {
+                    loadNote(notesData.notes[0].id);
+                }
+            }
+            
+            // Создание новой заметки
+            function createNewNote() {
+                const newNoteId = Date.now().toString();
+                const newNote = {
+                    id: newNoteId,
+                    title: 'Нова нотатка',
+                    content: '',
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString()
+                };
+                
+                notesData.notes.unshift(newNote);
+                notesData.currentNoteId = newNoteId;
+                
+                renderNotesList();
+                loadNote(newNoteId);
+                saveNotesToStorage();
+            }
+            
+            // Загрузка заметки в редактор
+            function loadNote(noteId) {
+                const note = notesData.notes.find(n => n.id === noteId);
+                if (!note) return;
+                
+                notesData.currentNoteId = noteId;
+                noteTitle.value = note.title;
+                noteContent.innerHTML = note.content;
+                
+                // Обновление активного элемента в списке
+                document.querySelectorAll('.note-item').forEach(item => {
+                    item.classList.remove('active');
+                    if (item.dataset.noteId === noteId) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+            
+            // Сохранение текущей заметки
+            function saveCurrentNote() {
+                if (!notesData.currentNoteId) return;
+                
+                const noteIndex = notesData.notes.findIndex(n => n.id === notesData.currentNoteId);
+                if (noteIndex === -1) return;
+                
+                notesData.notes[noteIndex].title = noteTitle.value;
+                notesData.notes[noteIndex].content = noteContent.innerHTML;
+                notesData.notes[noteIndex].updatedAt = new Date().toISOString();
+                
+                saveNotesToStorage();
+                renderNotesList(); // Обновляем список, так как заголовок мог измениться
+            }
+            
+            // Сохранение всех заметок в localStorage
+            function saveNotesToStorage() {
+                localStorage.setItem('notes', JSON.stringify(notesData.notes));
+            }
+            
+            // Отображение списка заметок
+            function renderNotesList() {
+                notesList.innerHTML = '';
+                
+                if (notesData.notes.length === 0) {
+                    notesList.innerHTML = '<div class="empty-notes">Немає нотаток. Створіть нову!</div>';
+                    return;
+                }
+                
+                notesData.notes.forEach(note => {
+                    const noteElement = document.createElement('div');
+                    noteElement.className = `note-item ${note.id === notesData.currentNoteId ? 'active' : ''}`;
+                    noteElement.dataset.noteId = note.id;
+                    
+                    const titleElement = document.createElement('div');
+                    titleElement.className = 'note-item-title';
+                    titleElement.textContent = note.title || 'Без назви';
+                    
+                    const previewElement = document.createElement('div');
+                    previewElement.className = 'note-item-preview';
+                    // Удаляем HTML-теги для превью
+                    previewElement.textContent = note.content.replace(/<[^>]*>/g, '').substring(0, 50) + '...';
+                    
+                    const dateElement = document.createElement('div');
+                    dateElement.className = 'note-item-date';
+                    dateElement.textContent = new Date(note.updatedAt).toLocaleDateString('uk-UA');
+                    
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.className = 'delete-note-btn';
+                    deleteBtn.textContent = 'Видалити';
+                    deleteBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        deleteNote(note.id);
+                    };
+                    
+                    noteElement.appendChild(titleElement);
+                    noteElement.appendChild(previewElement);
+                    noteElement.appendChild(dateElement);
+                    noteElement.appendChild(deleteBtn);
+                    
+                    noteElement.addEventListener('click', () => loadNote(note.id));
+                    
+                    notesList.appendChild(noteElement);
+                });
+            }
+            
+            // Удаление заметки
+            function deleteNote(noteId) {
+                if (confirm('Ви впевнені, що хочете видалити цю нотатку?')) {
+                    notesData.notes = notesData.notes.filter(n => n.id !== noteId);
+                    
+                    if (notesData.currentNoteId === noteId) {
+                        notesData.currentNoteId = notesData.notes.length > 0 ? notesData.notes[0].id : null;
+                        if (notesData.currentNoteId) {
+                            loadNote(notesData.currentNoteId);
+                        } else {
+                            noteTitle.value = '';
+                            noteContent.innerHTML = '';
+                        }
+                    }
+                    
+                    saveNotesToStorage();
+                    renderNotesList();
+                }
+            }
+            
+            // Функция для задержки выполнения (для автосохранения)
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+            
             // Завантаження збереженої теми
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
@@ -1790,6 +2262,7 @@
             updateDateTime();
             setInterval(updateDateTime, 60000); // Оновлюємо кожну хвилину
             generateMathProblem(); // Генеруємо першу математичну задачу
+            initNotes(); // Инициализация блокнота
         });
     </script>
 </body>
