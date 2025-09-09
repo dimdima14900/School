@@ -1637,31 +1637,31 @@
                 notes: []
             };
             
-            // Поточна дата та час (локальний час)
-            function updateDateTime() {
-                const now = new Date();
-                
-                // Используем локальное время устройства
-                const options = { 
-                    weekday: 'long', 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric', 
-                    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone 
-                };
-                
-                currentDateElement.textContent = now.toLocaleDateString('uk-UA', options);
-                currentTimeElement.textContent = 'Поточний час: ' + now.toLocaleTimeString('uk-UA');
-                
-                // Оновлення статусу дня
-                updateDayStatuses();
-                
-                // Перевірка поточного уроку
-                highlightCurrentLesson();
-                
-                // Перевірка наступних уроків для сповіщень
-                checkUpcomingLessons();
-            }
+// Замените функцию updateDateTime() на эту версию:
+function updateDateTime() {
+    const now = new Date();
+    
+    // Используем локальное время устройства
+    const options = { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric', 
+        timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone 
+    };
+    
+    currentDateElement.textContent = now.toLocaleDateString('uk-UA', options);
+    currentTimeElement.textContent = 'Поточний час: ' + now.toLocaleTimeString('uk-UA');
+    
+    // Оновлення статусу дня
+    updateDayStatuses();
+    
+    // Перевірка поточного уроку
+    highlightCurrentLesson();
+    
+    // Перевірка наступних уроків для сповіщень
+    checkUpcomingLessons();
+}
             
             // Оновлення статусів днів (сьогодні, завтра, післязавтра)
             function updateDayStatuses() {
@@ -2258,9 +2258,9 @@
                 body.classList.add('dark-theme');
             }
             
-            // Ініціалізація
+            // Замените вызов setInterval в конце скрипта на:
             updateDateTime();
-            setInterval(updateDateTime, 60000); // Оновлюємо кожну хвилину
+            setInterval(updateDateTime, 1000); // Оновлюємо кожну секунду
             generateMathProblem(); // Генеруємо першу математичну задачу
             initNotes(); // Инициализация блокнота
         });
